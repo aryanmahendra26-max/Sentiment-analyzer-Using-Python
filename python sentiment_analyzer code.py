@@ -22,3 +22,4 @@ while True:
     print(f"Sentiment : {result}")
     print(f"Score     : {polarity:.2f}  (-1 = very negative, +1 = very positive)")
     print("-" * 35)
+    
