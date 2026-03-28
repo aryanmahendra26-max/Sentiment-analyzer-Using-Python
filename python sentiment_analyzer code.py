@@ -22,14 +22,3 @@ while True:
     print(f"Sentiment : {result}")
     print(f"Score     : {polarity:.2f}  (-1 = very negative, +1 = very positive)")
     print("-" * 35)
-```
-
-**Before running, install TextBlob:**
-```
-pip install textblob
-python -m textblob.download_corpora
-```
-
-**Run it:**
-```
-python sentiment_analyzer.py
