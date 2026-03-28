@@ -1,5 +1,5 @@
 #  Sentiment Analyzer
-### CSA2001 – Fundamentals of AI and ML | BYOP Project
+### CSA2001 – Fundamentals of AI and ML | Project
 
 ---
 
