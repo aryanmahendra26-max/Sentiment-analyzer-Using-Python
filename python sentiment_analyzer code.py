@@ -1,25 +1,43 @@
 from textblob import TextBlob
 
-print("===== Sentiment Analyzer =====")
-print("Type 'quit' to exit\n")
+print("hey! welcome to my sentiment analyzer project")
+print("just type any sentence and i'll tell you if it's positive, negative or neutral")
+print("type 'exit' when you're done")
+print()
+
+def analyze(text):
+    b = TextBlob(text)
+    pol = b.sentiment.polarity
+    return pol
 
 while True:
-    text = input("Enter any text: ")
-    
-    if text.lower() == 'quit':
+
+    txt = input("enter text here -> ")
+
+    if txt.lower() == "exit":
+        print("ok bye!!")
         break
 
-    blob = TextBlob(text)
-    polarity = blob.sentiment.polarity
+    if txt.strip() == "":
+        print("bro you didn't type anything lol, try again")
+        print()
+        continue
 
-    if polarity > 0.1:
-        result = "POSITIVE 😊"
-    elif polarity < -0.1:
-        result = "NEGATIVE 😞"
+    result = analyze(txt)
+
+    print()
+
+    # i used 0.1 and -0.1 as cutoff because 
+    # anything too close to 0 is basically neutral
+    if result > 0.1:
+        print("this looks POSITIVE to me :)")
+    elif result < -0.1:
+        print("this looks NEGATIVE to me :(")
     else:
-        result = "NEUTRAL 😐"
+        print("hmm this seems NEUTRAL, not really positive or negative")
 
-    print(f"Sentiment : {result}")
-    print(f"Score     : {polarity:.2f}  (-1 = very negative, +1 = very positive)")
-    print("-" * 35)
-    
+    # showing the score so the user knows how strong the sentiment is
+    # -1 means very negative, +1 means very positive
+    print("polarity score:", round(result, 2))
+    print("(score goes from -1.0 to +1.0 where -1 is worst and +1 is best)")
+    print()
